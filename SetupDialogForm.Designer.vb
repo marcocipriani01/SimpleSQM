@@ -1,9 +1,9 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class SimpleSQM
     Inherits MetroFramework.Forms.MetroForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class SimpleSQM
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SimpleSQM))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -29,6 +29,7 @@ Partial Class SimpleSQM
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.label2 = New MetroFramework.Controls.MetroLabel()
         Me.ComboBoxComPort = New System.Windows.Forms.ComboBox()
+        Me.linkLabel = New MetroFramework.Controls.MetroLink()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -61,9 +62,9 @@ Partial Class SimpleSQM
         '
         'PictureBox1
         '
-        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Image = Global.ASCOM.SimpleSQM.My.Resources.Resources.ASCOM
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
@@ -80,12 +81,21 @@ Partial Class SimpleSQM
         Me.ComboBoxComPort.FormattingEnabled = True
         Me.ComboBoxComPort.Name = "ComboBoxComPort"
         '
+        'linkLabel
+        '
+        resources.ApplyResources(Me.linkLabel, "linkLabel")
+        Me.linkLabel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.linkLabel.Name = "linkLabel"
+        Me.linkLabel.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.linkLabel.UseSelectable = True
+        '
         'SimpleSQM
         '
         Me.AcceptButton = Me.OK_Button
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
+        Me.Controls.Add(Me.linkLabel)
         Me.Controls.Add(Me.ComboBoxComPort)
         Me.Controls.Add(Me.label2)
         Me.Controls.Add(Me.PictureBox1)
@@ -107,4 +117,5 @@ Partial Class SimpleSQM
     Friend WithEvents OK_Button As MetroFramework.Controls.MetroButton
     Friend WithEvents Cancel_Button As MetroFramework.Controls.MetroButton
     Private WithEvents label2 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents linkLabel As MetroFramework.Controls.MetroLink
 End Class

@@ -5,12 +5,13 @@
 
 void setup() {
   Serial.begin(SERIAL_SPEED);
-
 }
 
 void loop() {
   if (Serial.available() && (Serial.read() == '>')) {
-    Serial.println(sqm());
+    double val = sqm();
+    Serial.print("<");
+    Serial.println(val);
   }
 }
 

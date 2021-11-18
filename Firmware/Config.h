@@ -1,6 +1,5 @@
 // Serial connection
 #define SERIAL_SPEED 115200
-#define UUID "85c45996-e7eb-4ff2-bd4a-4e7385acca5b"
 
 // Sky Quality Meter
 #define SQM_LIMIT 19.0
