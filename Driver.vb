@@ -17,6 +17,7 @@
 Option Infer On
 Option Strict On
 
+Imports System.Globalization
 Imports System.Threading
 Imports ASCOM.DeviceInterface
 Imports ASCOM.Utilities
@@ -153,7 +154,7 @@ Public Class ObservingConditions
                 End Try
                 TL.LogMessage("SerialPort", msg)
                 If msg.StartsWith("<") Then
-                    sqmValue = Double.Parse(msg.Substring(1))
+                    sqmValue = Double.Parse(msg.Substring(1), CultureInfo.InvariantCulture)
                     TL.LogMessage("SQM", sqmValue.ToString())
                     sqmUpdateTime = Date.Now
                     updateTimer.Change(10000, 10000)
@@ -184,7 +185,7 @@ Public Class ObservingConditions
                     Dim msg As String = serial.ReadExisting()
                     TL.LogMessage("SerialPort", msg)
                     If msg.StartsWith("<") Then
-                        sqmValue = Double.Parse(msg.Substring(1))
+                        sqmValue = Double.Parse(msg.Substring(1), CultureInfo.InvariantCulture)
                         TL.LogMessage("SQM", sqmValue.ToString())
                         sqmUpdateTime = Date.Now
                     End If
@@ -296,6 +297,7 @@ Public Class ObservingConditions
         Get
             CheckConnected("SkyQuality")
             If sqmValue < 0.0 Or sqmValue >= 30.0 Then
+                TL.LogMessage("SkyQuality", "Rcv: " + sqmValue.ToString())
                 Throw New DriverException("Invalid SQM value received.")
             End If
             Return sqmValue
