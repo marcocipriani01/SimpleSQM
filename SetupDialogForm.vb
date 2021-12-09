@@ -7,13 +7,14 @@ Public Class SimpleSQM
 
     Private Sub OK_Button_Click(sender As Object, e As EventArgs) Handles OK_Button.Click
         ObservingConditions.comPort = ComboBoxComPort.SelectedItem.ToString()
+        ObservingConditions.debug = debugToggle.Checked
         DialogResult = DialogResult.OK
         Close()
     End Sub
 
     Private Sub Cancel_Button_Click(sender As Object, ByVal e As EventArgs) Handles Cancel_Button.Click
-        Me.DialogResult = DialogResult.Cancel
-        Me.Close()
+        DialogResult = DialogResult.Cancel
+        Close()
     End Sub
 
     Private Sub ShowAscomWebPage(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick, PictureBox1.Click
@@ -33,14 +34,11 @@ Public Class SimpleSQM
     End Sub
 
     Private Sub SetupDialogForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        InitUI()
-    End Sub
-
-    Private Sub InitUI()
         ComboBoxComPort.Items.Clear()
         ComboBoxComPort.Items.AddRange(IO.Ports.SerialPort.GetPortNames())
         If ComboBoxComPort.Items.Contains(ObservingConditions.comPort) Then
             ComboBoxComPort.SelectedItem = ObservingConditions.comPort
         End If
+        debugToggle.Checked = ObservingConditions.debug
     End Sub
 End Class

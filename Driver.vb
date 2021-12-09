@@ -14,9 +14,6 @@
 ' This definition is used to select code that's only applicable for one device type
 #Const Device = "ObservingConditions"
 
-Option Infer On
-Option Strict On
-
 Imports System.Globalization
 Imports System.Threading
 Imports ASCOM.DeviceInterface
@@ -39,6 +36,9 @@ Public Class ObservingConditions
     Friend Shared comPortProfileName As String = "COM Port"
     Friend Shared comPort As String
 
+    Friend Shared debugProfileName As String = "Debug"
+    Friend Shared debug As Boolean
+
     Friend WithEvents serial As IO.Ports.SerialPort = New IO.Ports.SerialPort()
     Private WithEvents updateTimer As Threading.Timer = New Threading.Timer(AddressOf updateTimer_Tick, Nothing, Timeout.Infinite, Timeout.Infinite)
 
@@ -54,7 +54,7 @@ Public Class ObservingConditions
     Public Sub New()
         ReadProfile()
         TL = New TraceLogger("", "SimpleSQM") With {
-            .Enabled = False
+            .Enabled = debug
         }
         Application.EnableVisualStyles()
         connectedState = False
@@ -78,6 +78,7 @@ Public Class ObservingConditions
         Using dialog As SimpleSQM = New SimpleSQM()
             Dim result As DialogResult = dialog.ShowDialog()
             If result = DialogResult.OK Then
+                TL.Enabled = debug
                 WriteProfile()
             End If
         End Using
@@ -132,18 +133,18 @@ Public Class ObservingConditions
                 serial.NewLine = vbCr
                 'serial.DtrEnable = True
                 'serial.RtsEnable = True
-                serial.ReadTimeout = 1500
+                serial.ReadTimeout = 8000
                 serial.BaudRate = 115200
                 serial.Open()
-                Thread.Sleep(300)
+                Thread.Sleep(200)
                 serial.WriteLine(">")
-                Thread.Sleep(500)
+                Thread.Sleep(800)
                 Dim msg As String
                 Try
                     msg = serial.ReadLine().Replace(vbCr, "").Trim()
                 Catch tex1 As TimeoutException
                     serial.WriteLine(">")
-                    Thread.Sleep(500)
+                    Thread.Sleep(2000)
                     Try
                         msg = serial.ReadLine().Replace(vbCr, "").Trim()
                     Catch tex2 As TimeoutException
@@ -157,7 +158,7 @@ Public Class ObservingConditions
                     sqmValue = Double.Parse(msg.Substring(1), CultureInfo.InvariantCulture)
                     TL.LogMessage("SQM", sqmValue.ToString())
                     sqmUpdateTime = Date.Now
-                    updateTimer.Change(10000, 10000)
+                    updateTimer.Change(15000, 15000)
                     connectedState = True
                 Else
                     serial.Close()
@@ -426,6 +427,7 @@ Public Class ObservingConditions
         Using driverProfile As New Profile()
             driverProfile.DeviceType = "ObservingConditions"
             comPort = driverProfile.GetValue(driverID, comPortProfileName, String.Empty, "")
+            debug = Convert.ToBoolean(driverProfile.GetValue(driverID, debugProfileName, String.Empty, False))
         End Using
     End Sub
 
@@ -436,6 +438,7 @@ Public Class ObservingConditions
         Using driverProfile As New Profile()
             driverProfile.DeviceType = "ObservingConditions"
             driverProfile.WriteValue(driverID, comPortProfileName, comPort.ToString())
+            driverProfile.WriteValue(driverID, debugProfileName, debug.ToString())
         End Using
 
     End Sub

@@ -1,13 +1,13 @@
 [Setup]
 AppID={{85c45996-e7eb-4ff2-bd4a-4e7385acca5b}
 AppName=SimpleSQM ASCOM ObservingConditions driver
-AppVerName=SimpleSQM ASCOM ObservingConditions driver 1.0.0
-AppVersion=1.0.0
+AppVerName=SimpleSQM ASCOM ObservingConditions driver 1.0.1
+AppVersion=1.0.1
 AppPublisher=Marco Cipriani <marco.cipriani.01@gmail.com>
 AppPublisherURL=mailto:marco.cipriani.01@gmail.com
 AppSupportURL=https://marcocipriani01.github.io/
 AppUpdatesURL=https://marcocipriani01.github.io/
-VersionInfoVersion=1.0.0
+VersionInfoVersion=1.0.1
 MinVersion=6.1sp1
 DefaultDirName="{commoncf}\ASCOM\ObservingConditions"
 DisableDirPage=yes

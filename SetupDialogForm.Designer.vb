@@ -30,6 +30,8 @@ Partial Class SimpleSQM
         Me.label2 = New MetroFramework.Controls.MetroLabel()
         Me.ComboBoxComPort = New System.Windows.Forms.ComboBox()
         Me.linkLabel = New MetroFramework.Controls.MetroLink()
+        Me.debugToggle = New MetroFramework.Controls.MetroToggle()
+        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -89,12 +91,29 @@ Partial Class SimpleSQM
         Me.linkLabel.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.linkLabel.UseSelectable = True
         '
+        'debugToggle
+        '
+        resources.ApplyResources(Me.debugToggle, "debugToggle")
+        Me.debugToggle.Name = "debugToggle"
+        Me.debugToggle.Style = MetroFramework.MetroColorStyle.Red
+        Me.debugToggle.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.debugToggle.UseSelectable = True
+        '
+        'MetroLabel1
+        '
+        resources.ApplyResources(Me.MetroLabel1, "MetroLabel1")
+        Me.MetroLabel1.Name = "MetroLabel1"
+        Me.MetroLabel1.Style = MetroFramework.MetroColorStyle.Red
+        Me.MetroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark
+        '
         'SimpleSQM
         '
         Me.AcceptButton = Me.OK_Button
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
+        Me.Controls.Add(Me.MetroLabel1)
+        Me.Controls.Add(Me.debugToggle)
         Me.Controls.Add(Me.linkLabel)
         Me.Controls.Add(Me.ComboBoxComPort)
         Me.Controls.Add(Me.label2)
@@ -118,4 +137,6 @@ Partial Class SimpleSQM
     Friend WithEvents Cancel_Button As MetroFramework.Controls.MetroButton
     Private WithEvents label2 As MetroFramework.Controls.MetroLabel
     Friend WithEvents linkLabel As MetroFramework.Controls.MetroLink
+    Friend WithEvents debugToggle As MetroFramework.Controls.MetroToggle
+    Private WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
 End Class
