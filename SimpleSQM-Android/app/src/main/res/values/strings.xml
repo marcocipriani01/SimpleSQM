@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SimpleSQM</string>
+    <string name="devices">USB Devices</string>
+    <string name="refresh_devices">Refresh Devices</string>
+    <string name="loading">Loading…</string>
+    <string name="no_driver_err">Connection failed: no driver for device.</string>
+    <string name="not_enough_port_err">Connection failed: not enough ports at device.</string>
+    <string name="device_not_found_err">Connection failed: device not found.</string>
+    <string name="permission_denied_err">Connection failed: permission denied.</string>
+    <string name="connectinon_failed_err">Connection failed!</string>
+    <string name="connected">Connected</string>
+    <string name="connection_failed_err">Connection failed: </string>
+    <string name="connection_lost">Connection lost: </string>
+    <string name="write_timeout">Write timeout.</string>
+    <string name="no_devices_found">No USB devices found.</string>
+    <string name="no_driver">No driver.</string>
+    <string name="vendor_product">Vendor: %04X, product: %04X</string>
+    <string name="usb_detected">USB device detected.</string>
+</resources>
