@@ -32,8 +32,11 @@ Partial Class SimpleSQM
         Me.linkLabel = New MetroFramework.Controls.MetroLink()
         Me.debugToggle = New MetroFramework.Controls.MetroToggle()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
+        Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
+        Me.limitMagSpinner = New System.Windows.Forms.NumericUpDown()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.limitMagSpinner, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -106,12 +109,31 @@ Partial Class SimpleSQM
         Me.MetroLabel1.Style = MetroFramework.MetroColorStyle.Red
         Me.MetroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark
         '
+        'MetroLabel2
+        '
+        resources.ApplyResources(Me.MetroLabel2, "MetroLabel2")
+        Me.MetroLabel2.Name = "MetroLabel2"
+        Me.MetroLabel2.Style = MetroFramework.MetroColorStyle.Red
+        Me.MetroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark
+        '
+        'limitMagSpinner
+        '
+        Me.limitMagSpinner.DecimalPlaces = 2
+        resources.ApplyResources(Me.limitMagSpinner, "limitMagSpinner")
+        Me.limitMagSpinner.Increment = New Decimal(New Integer() {5, 0, 0, 131072})
+        Me.limitMagSpinner.Maximum = New Decimal(New Integer() {25, 0, 0, 0})
+        Me.limitMagSpinner.Minimum = New Decimal(New Integer() {15, 0, 0, 0})
+        Me.limitMagSpinner.Name = "limitMagSpinner"
+        Me.limitMagSpinner.Value = New Decimal(New Integer() {19, 0, 0, 0})
+        '
         'SimpleSQM
         '
         Me.AcceptButton = Me.OK_Button
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
+        Me.Controls.Add(Me.limitMagSpinner)
+        Me.Controls.Add(Me.MetroLabel2)
         Me.Controls.Add(Me.MetroLabel1)
         Me.Controls.Add(Me.debugToggle)
         Me.Controls.Add(Me.linkLabel)
@@ -126,6 +148,7 @@ Partial Class SimpleSQM
         Me.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.TableLayoutPanel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.limitMagSpinner, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -139,4 +162,6 @@ Partial Class SimpleSQM
     Friend WithEvents linkLabel As MetroFramework.Controls.MetroLink
     Friend WithEvents debugToggle As MetroFramework.Controls.MetroToggle
     Private WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
+    Private WithEvents MetroLabel2 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents limitMagSpinner As NumericUpDown
 End Class

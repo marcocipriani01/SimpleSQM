@@ -1,7 +1,4 @@
 'tabs=4
-' --------------------------------------------------------------------------------
-' TODO fill in this information for your driver, then remove this line!
-'
 ' ASCOM ObservingConditions driver for SimpleSQM'
 '
 ' Your driver's ID is ASCOM.SimpleSQM.ObservingConditions
@@ -31,7 +28,7 @@ Public Class ObservingConditions
     ' Driver ID and descriptive string that shows in the Chooser
     '
     Friend Shared driverID As String = "ASCOM.SimpleSQM.ObservingConditions"
-    Private Shared driverDescription As String = "SimpleSQM"
+    Private Shared ReadOnly driverDescription As String = "SimpleSQM"
 
     Friend Shared comPortProfileName As String = "COM Port"
     Friend Shared comPort As String
@@ -39,8 +36,11 @@ Public Class ObservingConditions
     Friend Shared debugProfileName As String = "Debug"
     Friend Shared debug As Boolean
 
-    Friend WithEvents serial As IO.Ports.SerialPort = New IO.Ports.SerialPort()
-    Private WithEvents updateTimer As Threading.Timer = New Threading.Timer(AddressOf updateTimer_Tick, Nothing, Timeout.Infinite, Timeout.Infinite)
+    Friend Shared limitMagProfileName As String = "Limit magnitude"
+    Friend Shared limitMag As Double = 19.0
+
+    Friend WithEvents Serial As New IO.Ports.SerialPort()
+    Private WithEvents UpdateTimer As New Threading.Timer(AddressOf updateTimer_Tick, Nothing, Timeout.Infinite, Timeout.Infinite)
 
     Private sqmValue As Double = -1.0
     Private sqmUpdateTime As DateTime = Nothing
@@ -122,55 +122,55 @@ Public Class ObservingConditions
                 Return
             End If
             If value Then
-                If serial.IsOpen Then
+                If Serial.IsOpen Then
                     Throw New DriverException("Already connected!")
                 End If
                 If comPort = "" Then
                     Throw New DriverException("Set the serial port first.")
                 End If
                 TL.LogMessage("Connected Set", "Connecting to port " + comPort)
-                serial.PortName = comPort
-                serial.NewLine = vbCr
+                Serial.PortName = comPort
+                Serial.NewLine = vbCr
                 'serial.DtrEnable = True
                 'serial.RtsEnable = True
-                serial.ReadTimeout = 8000
-                serial.BaudRate = 115200
-                serial.Open()
+                Serial.ReadTimeout = 8000
+                Serial.BaudRate = 115200
+                Serial.Open()
                 Thread.Sleep(200)
-                serial.WriteLine(">")
+                Serial.WriteLine(">")
                 Thread.Sleep(800)
                 Dim msg As String
                 Try
-                    msg = serial.ReadLine().Replace(vbCr, "").Trim()
+                    msg = Serial.ReadLine().Replace(vbCr, "").Trim()
                 Catch tex1 As TimeoutException
-                    serial.WriteLine(">")
+                    Serial.WriteLine(">")
                     Thread.Sleep(2000)
                     Try
-                        msg = serial.ReadLine().Replace(vbCr, "").Trim()
+                        msg = Serial.ReadLine().Replace(vbCr, "").Trim()
                     Catch tex2 As TimeoutException
-                        serial.Close()
+                        Serial.Close()
                         Throw New DriverException("No SimpleSQM device detected on the selected port!")
                         Return
                     End Try
                 End Try
                 TL.LogMessage("SerialPort", msg)
                 If msg.StartsWith("<") Then
-                    sqmValue = Double.Parse(msg.Substring(1), CultureInfo.InvariantCulture)
+                    sqmValue = Double.Parse(msg.Substring(1), CultureInfo.InvariantCulture) - 19.0 + limitMag
                     TL.LogMessage("SQM", sqmValue.ToString())
                     sqmUpdateTime = Date.Now
-                    updateTimer.Change(15000, 15000)
+                    UpdateTimer.Change(15000, 15000)
                     connectedState = True
                 Else
-                    serial.Close()
+                    Serial.Close()
                     Throw New DriverException("No SimpleSQM device detected on the selected port!")
                     Return
                 End If
             Else
                 TL.LogMessage("Connected Set", "Disconnecting from port " + comPort)
-                If serial.IsOpen Then
-                    serial.Close()
+                If Serial.IsOpen Then
+                    Serial.Close()
                 End If
-                updateTimer.Change(Timeout.Infinite, Timeout.Infinite)
+                UpdateTimer.Change(Timeout.Infinite, Timeout.Infinite)
                 sqmValue = -1.0
                 sqmUpdateTime = Nothing
                 connectedState = False
@@ -178,15 +178,15 @@ Public Class ObservingConditions
         End Set
     End Property
 
-    Private Sub serialPort_DataReceived(sender As Object, e As IO.Ports.SerialDataReceivedEventArgs) Handles serial.DataReceived
+    Private Sub serialPort_DataReceived(sender As Object, e As IO.Ports.SerialDataReceivedEventArgs) Handles Serial.DataReceived
         If connectedState Then
             Thread.Sleep(100)
             Try
-                While serial.BytesToRead > 0
-                    Dim msg As String = serial.ReadExisting()
+                While Serial.BytesToRead > 0
+                    Dim msg As String = Serial.ReadExisting()
                     TL.LogMessage("SerialPort", msg)
                     If msg.StartsWith("<") Then
-                        sqmValue = Double.Parse(msg.Substring(1), CultureInfo.InvariantCulture)
+                        sqmValue = Double.Parse(msg.Substring(1), CultureInfo.InvariantCulture) - 19.0 + limitMag
                         TL.LogMessage("SQM", sqmValue.ToString())
                         sqmUpdateTime = Date.Now
                     End If
@@ -198,8 +198,8 @@ Public Class ObservingConditions
     End Sub
 
     Private Sub updateTimer_Tick(state As Object)
-        If serial.IsOpen Then
-            serial.WriteLine(">")
+        If Serial.IsOpen Then
+            Serial.WriteLine(">")
         End If
     End Sub
 
@@ -428,6 +428,7 @@ Public Class ObservingConditions
             driverProfile.DeviceType = "ObservingConditions"
             comPort = driverProfile.GetValue(driverID, comPortProfileName, String.Empty, "")
             debug = Convert.ToBoolean(driverProfile.GetValue(driverID, debugProfileName, String.Empty, False))
+            limitMag = Convert.ToDouble(driverProfile.GetValue(driverID, limitMagProfileName, String.Empty, "19.0"))
         End Using
     End Sub
 
@@ -439,6 +440,7 @@ Public Class ObservingConditions
             driverProfile.DeviceType = "ObservingConditions"
             driverProfile.WriteValue(driverID, comPortProfileName, comPort.ToString())
             driverProfile.WriteValue(driverID, debugProfileName, debug.ToString())
+            driverProfile.WriteValue(driverID, limitMagProfileName, limitMag.ToString())
         End Using
 
     End Sub

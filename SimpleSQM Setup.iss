@@ -1,13 +1,13 @@
 [Setup]
 AppID={{85c45996-e7eb-4ff2-bd4a-4e7385acca5b}
 AppName=SimpleSQM ASCOM ObservingConditions driver
-AppVerName=SimpleSQM ASCOM ObservingConditions driver 1.0.1
-AppVersion=1.0.1
+AppVerName=SimpleSQM ASCOM ObservingConditions driver 1.0.2
+AppVersion=1.0.2
 AppPublisher=Marco Cipriani <marco.cipriani.01@gmail.com>
 AppPublisherURL=mailto:marco.cipriani.01@gmail.com
 AppSupportURL=https://marcocipriani01.github.io/
 AppUpdatesURL=https://marcocipriani01.github.io/
-VersionInfoVersion=1.0.1
+VersionInfoVersion=1.0.2
 MinVersion=6.1sp1
 DefaultDirName="{commoncf}\ASCOM\ObservingConditions"
 DisableDirPage=yes
@@ -20,11 +20,11 @@ SolidCompression=yes
 WizardStyle=modern
 ; Put there by Platform if Driver Installer Support selected
 WizardImageFile="C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Installer Generator\Resources\WizardImage.bmp"
-LicenseFile="D:\Lavori\ASCOM.SimpleSQM.ObservingConditions\LICENSE.txt"
+LicenseFile=".\LICENSE.txt"
 ; {commoncf}\ASCOM\Uninstall\ObservingConditions folder created by Platform, always
 UninstallFilesDir="{commoncf}\ASCOM\Uninstall\ObservingConditions\SimpleSQM"
-SetupIconFile="D:\Lavori\ASCOM.SimpleSQM.ObservingConditions\res\icon.ico"
-UninstallDisplayIcon="D:\Lavori\ASCOM.SimpleSQM.ObservingConditions\res\icon.ico"
+SetupIconFile=".\res\icon.ico"
+UninstallDisplayIcon=".\res\icon.ico"
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -34,8 +34,8 @@ Name: "{commoncf}\ASCOM\Uninstall\ObservingConditions\SimpleSQM"
 ; TODO: Add subfolders below {app} as needed (e.g. Name: "{app}\MyFolder")
 
 [Files]
-Source: "D:\Lavori\ASCOM.SimpleSQM.ObservingConditions\bin\Release\*"; DestDir: "{app}\ASCOM.SimpleSQM.ObservingConditions\"
-Source: "D:\Lavori\ASCOM.SimpleSQM.ObservingConditions\LICENSE.txt"; DestDir: "{app}\ASCOM.SimpleSQM.ObservingConditions\"
+Source: ".\bin\Release\*"; DestDir: "{app}\ASCOM.SimpleSQM.ObservingConditions\"
+Source: ".\LICENSE.txt"; DestDir: "{app}\ASCOM.SimpleSQM.ObservingConditions\"
 
 ; Only if driver is .NET
 [Run]

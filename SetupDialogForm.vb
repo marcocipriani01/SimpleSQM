@@ -8,6 +8,7 @@ Public Class SimpleSQM
     Private Sub OK_Button_Click(sender As Object, e As EventArgs) Handles OK_Button.Click
         ObservingConditions.comPort = ComboBoxComPort.SelectedItem.ToString()
         ObservingConditions.debug = debugToggle.Checked
+        ObservingConditions.limitMag = limitMagSpinner.Value
         DialogResult = DialogResult.OK
         Close()
     End Sub
@@ -25,7 +26,7 @@ Public Class SimpleSQM
         End Try
     End Sub
 
-    Private Sub linkLabel_Click(sender As Object, e As EventArgs) Handles linkLabel.Click
+    Private Sub LinkLabel_Click(sender As Object, e As EventArgs) Handles linkLabel.Click
         Try
             Process.Start("https://marcocipriani01.github.io/")
         Catch ex As Exception
@@ -40,5 +41,6 @@ Public Class SimpleSQM
             ComboBoxComPort.SelectedItem = ObservingConditions.comPort
         End If
         debugToggle.Checked = ObservingConditions.debug
+        limitMagSpinner.Value = CDec(ObservingConditions.limitMag)
     End Sub
 End Class

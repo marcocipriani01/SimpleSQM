@@ -178,7 +178,7 @@
     <value>1</value>
   </data>
   <data name="TableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 142</value>
+    <value>118, 183</value>
   </data>
   <data name="TableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -187,7 +187,7 @@
     <value>193, 37</value>
   </data>
   <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanel1.Name" xml:space="preserve">
     <value>TableLayoutPanel1</value>
@@ -199,13 +199,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="TableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="OK_Button" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="Cancel_Button" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Absolute,37" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 185</value>
+    <value>23, 225</value>
   </data>
   <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 56</value>
@@ -226,13 +226,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 71</value>
+    <value>19, 71</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 19</value>
@@ -253,16 +253,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="ComboBoxComPort.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
   <data name="ComboBoxComPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 69</value>
+    <value>133, 69</value>
   </data>
   <data name="ComboBoxComPort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>269, 23</value>
+    <value>239, 23</value>
   </data>
   <data name="ComboBoxComPort.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -277,22 +277,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ComboBoxComPort.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="linkLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="linkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 219</value>
+    <value>83, 259</value>
   </data>
   <data name="linkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>289, 23</value>
   </data>
   <data name="linkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>7</value>
   </data>
   <data name="linkLabel.Text" xml:space="preserve">
-    <value>© 2021 Marco Cipriani - marcocipriani01.github.io</value>
+    <value>© 2022 Marco Cipriani - marcocipriani01.github.io</value>
   </data>
   <data name="&gt;&gt;linkLabel.Name" xml:space="preserve">
     <value>linkLabel</value>
@@ -304,19 +304,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="debugToggle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="debugToggle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 106</value>
+    <value>166, 147</value>
   </data>
   <data name="debugToggle.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 17</value>
   </data>
   <data name="debugToggle.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="debugToggle.Text" xml:space="preserve">
     <value>Off</value>
@@ -331,13 +331,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debugToggle.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="MetroLabel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="MetroLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 104</value>
+    <value>19, 145</value>
   </data>
   <data name="MetroLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 19</value>
@@ -358,6 +358,60 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MetroLabel1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="MetroLabel2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="MetroLabel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 107</value>
+  </data>
+  <data name="MetroLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 19</value>
+  </data>
+  <data name="MetroLabel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="MetroLabel2.Text" xml:space="preserve">
+    <value>Limit magnitude:</value>
+  </data>
+  <data name="&gt;&gt;MetroLabel2.Name" xml:space="preserve">
+    <value>MetroLabel2</value>
+  </data>
+  <data name="&gt;&gt;MetroLabel2.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;MetroLabel2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MetroLabel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="limitMagSpinner.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="limitMagSpinner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 105</value>
+  </data>
+  <data name="limitMagSpinner.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 23</value>
+  </data>
+  <data name="limitMagSpinner.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="limitMagSpinner.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;limitMagSpinner.Name" xml:space="preserve">
+    <value>limitMagSpinner</value>
+  </data>
+  <data name="&gt;&gt;limitMagSpinner.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;limitMagSpinner.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;limitMagSpinner.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -367,7 +421,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>395, 257</value>
+    <value>395, 299</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
